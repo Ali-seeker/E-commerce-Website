@@ -1,3 +1,6 @@
+import {useCart} from "../context/CartContext.jsx";
+
+const { addToCart } = useCart();
 function ProductCard({ product }) {
   return (
     <div className="card h-100 shadow-sm">
@@ -5,7 +8,10 @@ function ProductCard({ product }) {
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{product.title}</h5>
         <p className="card-text text-muted">${product.price}</p>
-        <button className="btn btn-primary mt-auto">Add to Cart</button>
+        <button onClick={() => addToCart(product)} className="btn btn-primary">
+         Add to Cart
+        </button>
+
       </div>
     </div>
   );

@@ -1,11 +1,26 @@
-function Profile() {
-  const token = localStorage.getItem('token');
+import React, { useEffect, useState } from "react";
+
+const Profile = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const data = localStorage.getItem("user");
+    if (data) setUser(JSON.parse(data));
+  }, []);
+
   return (
-    <div className="container mt-5">
-      <h3>User Token</h3>
-      <pre className="bg-light p-3">{token || "Not logged in."}</pre>
+    <div className="p-4">
+      <h2 className="text-xl font-bold">Profile</h2>
+      {user ? (
+        <>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
+        </>
+      ) : (
+        <p>Please login</p>
+      )}
     </div>
   );
-}
+};
 
 export default Profile;

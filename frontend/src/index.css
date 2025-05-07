@@ -1,5 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+/* Tailwind v4 new base layer setup */
+@import "tailwindcss/preflight";     /* replaces @tailwind base */
+@import "tailwindcss/utilities";     /* replaces @tailwind utilities */
+
+/* Optional Bootstrap adjustments here */

@@ -32,7 +32,7 @@ def login(user: UserCreate, db: Session = Depends(get_db)):
     token = create_access_token({"sub": db_user.email})
     return {"access_token": token}
 
-@router.post("/auth/google", response_model=Token)
+@router.post("/google", response_model=Token)
 def google_auth(payload: GoogleToken, db: Session = Depends(get_db)):
     user_info = verify_google_token(payload.token)
     if not user_info:
